@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Studio Vallone, dottore commercialista in Milano</title>
+<meta name="description" content="Studio Vallone, Dott.ssa Livia Vallone, dottore commercialista e revisore legale in Milano. Consulenza societaria e fiscale, revisione, governance e sistemi di controllo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f4f3f1;
+  --paper-2:#eceae6;
+  --ink:#111111;
+  --ink-soft:#6b6b6b;
+  --line:#d8d5d0;
+  --line-strong:#111111;
+  --sans:"Archivo",system-ui,-apple-system,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --gutter:clamp(22px,4.4vw,90px);
+  --frame:1480px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:clamp(15.5px,1vw,17px);line-height:1.68;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:100%;max-width:var(--frame);margin:0 auto;padding:0 var(--gutter)}
+section{padding:clamp(52px,6vw,110px) 0}
+
+/* ---------- tipografia ---------- */
+h1,h2,h3{font-weight:500;letter-spacing:-.028em;margin:0;line-height:1.02}
+h1{font-size:clamp(38px,6.6vw,104px)}
+.sec-title{font-size:clamp(27px,3.6vw,54px);line-height:1.06}
+.lede{font-size:clamp(16px,1.28vw,21px);color:var(--ink-soft);max-width:52ch;line-height:1.6;margin:0}
+.meta{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft)}
+.rule{height:1px;background:var(--line-strong);margin:0}
+.rule-soft{height:1px;background:var(--line)}
+
+/* ---------- intestazione ---------- */
+.site-head{position:sticky;top:0;z-index:60;background:var(--paper);border-bottom:1px solid transparent;transition:border-color .3s}
+.site-head.is-stuck{border-color:var(--line-strong)}
+.head-in{max-width:var(--frame);margin:0 auto;padding:18px var(--gutter);display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand svg{height:clamp(38px,3.6vw,52px);width:auto}
+.nav{display:flex;gap:clamp(18px,2.4vw,40px);align-items:center}
+.nav a{text-decoration:none;font-size:14px;letter-spacing:.02em;color:var(--ink-soft);padding:5px 0;border-bottom:1px solid transparent;transition:color .25s,border-color .25s}
+.nav a:hover{color:var(--ink);border-color:var(--ink)}
+.nav a[aria-current="page"]{color:var(--ink);border-color:var(--ink)}
+.nav-toggle{display:none;background:none;border:1px solid var(--line-strong);padding:9px 16px;font:inherit;font-size:13px;cursor:pointer;color:var(--ink)}
+
+/* ---------- apertura ---------- */
+.opener{padding:clamp(60px,8vw,140px) 0 clamp(36px,4vw,64px);border-bottom:1px solid var(--line-strong)}
+.opener h1{max-width:19ch;margin-bottom:clamp(24px,3vw,44px)}
+.opener .foot{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}
+.opener .lede{max-width:46ch}
+.marks{display:flex;gap:26px;flex-wrap:wrap}
+.marks span{font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft)}
+@media (max-width:820px){.opener .foot{grid-template-columns:1fr}}
+
+/* ---------- indice numerato ---------- */
+.index{border-top:1px solid var(--line-strong)}
+.item{display:grid;grid-template-columns:76px minmax(0,1fr) minmax(0,1.15fr);gap:clamp(16px,3vw,52px);
+  padding:clamp(24px,2.6vw,40px) 0;border-bottom:1px solid var(--line);align-items:start;
+  text-decoration:none;color:inherit;position:relative;transition:padding .35s cubic-bezier(.2,.7,.3,1)}
+.item:hover{padding-left:14px}
+.item::before{content:"";position:absolute;left:0;top:0;bottom:0;width:0;background:var(--ink);opacity:.045;transition:width .35s cubic-bezier(.2,.7,.3,1)}
+.item:hover::before{width:100%}
+.item > *{position:relative}
+.item .num{font-family:var(--mono);font-size:12px;letter-spacing:.1em;color:var(--ink-soft);padding-top:8px}
+.item h3{font-size:clamp(21px,2.2vw,34px);letter-spacing:-.02em}
+.item p{margin:0;color:var(--ink-soft);font-size:15.5px}
+.item .arrow{position:absolute;right:0;top:50%;transform:translateY(-50%);font-size:20px;opacity:0;transition:opacity .3s,transform .3s}
+.item:hover .arrow{opacity:1;transform:translate(6px,-50%)}
+@media (max-width:820px){
+  .item{grid-template-columns:44px minmax(0,1fr);gap:14px}
+  .item p{grid-column:2}
+  .item .arrow{display:none}
+}
+
+/* ---------- blocchi ---------- */
+.split{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,88px);align-items:start}
+@media (max-width:900px){.split{grid-template-columns:minmax(0,1fr)!important}}
+.invert{background:var(--ink);color:var(--paper)}
+.invert .lede,.invert p{color:#a8a6a2}
+.invert .rule{background:#3a3a3a}
+.invert .meta{color:#8c8a86}
+.band{background:var(--paper-2)}
+
+/* ---------- numeri ---------- */
+.figures{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line-strong)}
+.figures div{padding:clamp(24px,2.6vw,40px) clamp(14px,2vw,32px) 0;border-left:1px solid var(--line)}
+.figures div:first-child{border-left:0;padding-left:0}
+.figures b{display:block;font-size:clamp(34px,4.6vw,72px);font-weight:500;letter-spacing:-.04em;line-height:1;margin-bottom:10px}
+.figures span{font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft)}
+@media (max-width:700px){.figures{grid-template-columns:1fr}.figures div{border-left:0;padding-left:0;border-top:1px solid var(--line)}.figures div:first-child{border-top:0}}
+
+/* ---------- testo lungo ---------- */
+.prose h2{font-size:clamp(22px,2.2vw,34px);margin:44px 0 14px}
+.prose p{margin:0 0 18px;color:var(--ink-soft)}
+.prose ul{margin:0 0 18px;padding-left:20px;color:var(--ink-soft)}
+.prose li{margin-bottom:9px}
+.callout{border-top:1px solid var(--line-strong);border-bottom:1px solid var(--line-strong);padding:26px 0;margin:32px 0}
+.callout b{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px;color:var(--ink-soft)}
+.callout p{margin:0;color:var(--ink)}
+
+/* ---------- elenco credenziali ---------- */
+.creds{border-top:1px solid var(--line-strong);margin-top:34px}
+.cred{display:grid;grid-template-columns:minmax(0,.55fr) minmax(0,1fr);gap:clamp(14px,2.4vw,40px);padding:22px 0;border-bottom:1px solid var(--line)}
+.cred b{font-weight:500;font-size:16.5px}
+.cred span{color:var(--ink-soft);font-size:15px}
+@media (max-width:700px){.cred{grid-template-columns:1fr;gap:4px}}
+
+/* ---------- bottoni ---------- */
+.btn{display:inline-block;text-decoration:none;background:var(--ink);color:var(--paper);border:1px solid var(--ink);
+  padding:14px 30px;font-size:14.5px;letter-spacing:.02em;transition:background .25s,color .25s}
+.btn:hover{background:transparent;color:var(--ink)}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:var(--paper)}
+.invert .btn{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+.invert .btn:hover{background:transparent;color:var(--paper)}
+.btn-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+
+/* ---------- contatti ---------- */
+.dl{margin:0;border-top:1px solid var(--line-strong)}
+.dl div{padding:20px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:minmax(0,.45fr) minmax(0,1fr);gap:20px;align-items:baseline}
+.dl dt{font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft)}
+.dl dd{margin:0;font-size:18px}
+.dl dd a{text-decoration:none;border-bottom:1px solid var(--line)}
+.dl dd a:hover{border-color:var(--ink)}
+@media (max-width:700px){.dl div{grid-template-columns:1fr;gap:6px}}
+
+.form{border:1px solid var(--line-strong);padding:clamp(24px,2.6vw,42px)}
+.field{margin-bottom:20px}
+.field label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:8px}
+.field input,.field textarea,.field select{width:100%;border:0;border-bottom:1px solid var(--line-strong);background:transparent;
+  padding:11px 2px;font:inherit;font-size:16px;color:var(--ink);border-radius:0}
+.field select{padding-left:0}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-bottom-width:2px}
+.field textarea{min-height:120px;resize:vertical;border:1px solid var(--line-strong);padding:12px}
+.privacy{font-size:13px;color:var(--ink-soft);margin:6px 0 22px;line-height:1.55}
+.form button{cursor:pointer;font:inherit}
+
+.mapframe{position:relative;aspect-ratio:16/9;border:1px solid var(--line-strong);overflow:hidden;background:var(--paper-2)}
+.mapframe iframe{width:100%;height:100%;border:0}
+.map-cta{position:absolute;inset:0;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  border:0;background:var(--paper-2);cursor:pointer;font:inherit;color:var(--ink)}
+.map-cta strong{font-size:clamp(19px,2vw,26px);font-weight:500}
+.map-cta span{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* ---------- comparsa ---------- */
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal[data-delay="1"]{transition-delay:.08s}
+.reveal[data-delay="2"]{transition-delay:.16s}
+.reveal[data-delay="3"]{transition-delay:.24s}
+
+/* ---------- piè di pagina ---------- */
+.site-foot{background:var(--ink);color:#8c8a86;padding:clamp(48px,5vw,80px) 0 30px;font-size:14.5px}
+.foot-in{display:grid;grid-template-columns:1.4fr .8fr .9fr;gap:36px}
+.site-foot a{color:#d6d4d0;text-decoration:none}
+.site-foot a:hover{color:#fff;text-decoration:underline}
+.site-foot strong{display:block;color:#fff;font-weight:500;font-family:var(--mono);font-size:11px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px}
+.site-foot p{margin:0 0 14px}
+.foot-bot{margin-top:40px;padding-top:20px;border-top:1px solid #333;display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase}
+.foot-links{display:flex;gap:20px;flex-wrap:wrap}
+@media (max-width:820px){.foot-in{grid-template-columns:1fr;gap:28px}}
+
+/* ---------- banner cookie ---------- */
+.cbanner{position:fixed;left:var(--gutter);right:var(--gutter);bottom:22px;z-index:200;background:var(--ink);color:#d6d4d0;
+  padding:22px 26px;display:none;gap:20px;align-items:center;justify-content:space-between;flex-wrap:wrap;max-width:1000px;margin:0 auto;font-size:14px}
+.cbanner.show{display:flex}
+.cbanner p{margin:0;max-width:60ch;line-height:1.6}
+.cbanner a{color:#fff}
+.cbanner .actions{display:flex;gap:10px;flex-wrap:wrap}
+.cbanner button{padding:11px 20px;font:inherit;font-size:13.5px;cursor:pointer;border:1px solid #555;background:transparent;color:#fff}
+.cbanner button.primary{background:#fff;color:var(--ink);border-color:#fff}
+
+/* ---------- responsive ---------- */
+@media (max-width:900px){
+  .nav{position:fixed;inset:66px 0 auto 0;background:var(--paper);flex-direction:column;align-items:flex-start;gap:0;
+    padding:8px var(--gutter) 22px;border-bottom:1px solid var(--line-strong);display:none}
+  .nav.open{display:flex}
+  .nav a{padding:13px 0;width:100%;font-size:17px;border-bottom:0}
+  .nav-toggle{display:block}
+}
+@media (max-width:760px){
+  :root{--gutter:20px}
+  section{padding:44px 0}
+  .opener{padding:44px 0 30px}
+  h1{font-size:clamp(32px,9vw,44px)}
+  .sec-title{font-size:clamp(24px,7vw,32px)}
+  .lede{font-size:16.5px}
+  .form{padding:22px 18px}
+  .cbanner{padding:18px;font-size:13.5px;bottom:14px}
+  .cbanner .actions{width:100%}
+  .cbanner button{flex:1}
+}
+@media (min-width:1900px){:root{--frame:1640px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+
+/* ============================================================
+   TERZO COLORE, RITRATTO, TONO PERSONALE
+   ============================================================ */
+:root{--green:#1f3d2e;--green-pale:#e8ede9}
+
+.item:hover::before{background:var(--green);opacity:.05}
+.item .num{transition:color .3s}
+.item:hover .num{color:var(--green)}
+.item .arrow{color:var(--green)}
+a.meta:hover{color:var(--green)!important;border-color:var(--green)!important}
+.field input:focus,.field textarea:focus,.field select:focus{border-color:var(--green)}
+.btn{background:var(--green);border-color:var(--green)}
+.btn:hover{background:transparent;color:var(--green)}
+.btn.ghost{color:var(--green);border-color:var(--green)}
+.btn.ghost:hover{background:var(--green);color:var(--paper)}
+.invert{background:var(--green);color:#e9efe9}
+.invert p{color:#b6c6bb}
+.invert .btn{background:var(--paper);color:var(--green);border-color:var(--paper)}
+.invert .btn:hover{background:transparent;color:var(--paper);border-color:var(--paper)}
+.site-foot{background:var(--green)}
+.site-foot{color:#a6b8ac}
+.foot-bot{border-color:rgba(255,255,255,.16)}
+.cbanner{background:var(--green)}
+.callout{border-top-color:var(--green);border-bottom-color:var(--line)}
+.callout b{color:var(--green)}
+.map-cta{background:var(--green-pale)}
+
+/* --- apertura piu leggera, con ritratto --- */
+.opener{border-bottom:1px solid var(--line);padding-bottom:0}
+.opener-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(28px,5vw,80px);align-items:end}
+.opener h1{font-size:clamp(34px,5.4vw,80px);max-width:16ch;margin-bottom:clamp(20px,2.4vw,32px)}
+.opener .lede{max-width:44ch;font-size:clamp(16px,1.2vw,19px)}
+.portrait{position:relative;aspect-ratio:4/5;background:var(--green-pale);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.portrait img{width:100%;height:100%;object-fit:cover}
+.portrait .ph{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);text-align:center;padding:0 18px}
+.portrait .cap{position:absolute;left:0;right:0;bottom:0;background:var(--paper);border-top:1px solid var(--line);padding:14px 16px}
+.portrait .cap b{display:block;font-weight:500;font-size:15px}
+.portrait .cap span{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+@media (max-width:820px){
+  .opener-grid{grid-template-columns:1fr;gap:26px;align-items:start}
+  .portrait{aspect-ratio:3/2;max-width:none}
+}
+
+/* --- citazione personale --- */
+.quote{border-top:1px solid var(--green);border-bottom:1px solid var(--line);padding:clamp(30px,3.4vw,52px) 0}
+.quote blockquote{margin:0;font-size:clamp(21px,2.6vw,38px);line-height:1.25;letter-spacing:-.02em;max-width:24ch;font-weight:500}
+.quote .who{display:flex;align-items:center;gap:14px;margin-top:26px}
+.quote .who .sig{height:38px;width:auto;color:var(--green)}
+.quote .who span{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* --- indice dinamico anche su mobile --- */
+@media (max-width:820px){
+  .item{grid-template-columns:38px minmax(0,1fr);gap:12px;padding:20px 0 20px 0;border-left:2px solid transparent;transition:border-color .5s ease,padding .5s ease,background .5s ease}
+  .item.in{border-left-color:var(--green);padding-left:14px;background:linear-gradient(90deg,rgba(31,61,46,.05),transparent 70%)}
+  .item:active{background:rgba(31,61,46,.1)}
+  .item .num{color:var(--green);padding-top:5px}
+  .item h3{font-size:20px}
+  .item p{font-size:14.5px;margin-top:4px}
+  .item .arrow{display:block;position:static;opacity:1;transform:none;grid-column:2;font-size:16px;margin-top:8px}
+}
+
+/* --- fotografia di Milano in apertura --- */
+.cityshot{margin:0;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3}
+.cityshot img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04)}
+@media (max-width:820px){.cityshot{aspect-ratio:16/10}}
+
+/* --- firma in coda al testo --- */
+.signblock{display:flex;align-items:center;gap:14px;padding-top:20px;border-top:1px solid var(--line)}
+.signblock .sig{height:36px;width:auto;color:var(--green);flex:0 0 auto}
+.signblock span{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* --- fotografia sfumata dentro la testata --- */
+.cityshot{border:0;position:relative;overflow:visible}
+.cityshot img{
+  filter:grayscale(1) contrast(1.02) blur(1.6px);
+  transform:scale(1.04);
+  -webkit-mask-image:radial-gradient(120% 100% at 70% 40%,#000 38%,rgba(0,0,0,.55) 66%,transparent 100%);
+  mask-image:radial-gradient(120% 100% at 70% 40%,#000 38%,rgba(0,0,0,.55) 66%,transparent 100%);
+  opacity:.9;
+}
+.cityshot::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,var(--paper) 0%,rgba(244,243,241,.35) 26%,rgba(244,243,241,0) 58%),
+             linear-gradient(180deg,rgba(244,243,241,.5),rgba(244,243,241,0) 42%,var(--paper) 100%)}
+@media (max-width:820px){
+  .cityshot img{-webkit-mask-image:radial-gradient(120% 110% at 50% 45%,#000 40%,transparent 100%);mask-image:radial-gradient(120% 110% at 50% 45%,#000 40%,transparent 100%)}
+  .cityshot::after{background:linear-gradient(180deg,rgba(244,243,241,.45),rgba(244,243,241,0) 40%,var(--paper) 100%)}
+}
+
+/* --- firma con nome in corsivo --- */
+.signblock{gap:12px;flex-wrap:wrap}
+.signblock .signname{font-family:Georgia,"Times New Roman",serif;font-style:italic;font-size:19px;letter-spacing:0;text-transform:none;color:var(--green)}
+.signblock .signrole{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-soft);border-left:1px solid var(--line);padding-left:12px}
+
+/* --- verde nell'indice --- */
+.index{border-top-color:var(--green)}
+.item{border-bottom-color:var(--line);border-left:2px solid transparent;transition:border-color .35s,padding .35s cubic-bezier(.2,.7,.3,1)}
+.item:hover{border-left-color:var(--green)}
+.item:hover h3{color:var(--green)}
+.item h3{transition:color .3s}
+.item:last-child{border-bottom-color:var(--green)}
+
+</style>
+</head>
+<body>
+
+<header class="site-head">
+  <div class="head-in">
+    <a class="brand" href="index.html" aria-label="Studio Vallone, home">
+      <svg viewBox="0 0 260 66" role="img" aria-label="Studio Vallone">
+        <rect x="1" y="3" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M17 19 L31 47 L45 19" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"/>
+        <text x="80" y="32" font-family="Archivo,sans-serif" font-size="21" font-weight="500" letter-spacing="3.4" fill="currentColor">STUDIO</text>
+        <text x="80" y="57" font-family="Archivo,sans-serif" font-size="21" font-weight="500" letter-spacing="3.4" fill="currentColor">VALLONE</text>
+      </svg>
+    </a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Indice</button>
+    <nav class="nav" id="nav">
+      <a href="index.html" aria-current="page">Studio</a>
+      <a href="profilo.html">Profilo</a>
+      <a href="attivita.html">Attività</a>
+      <a href="contatti.html">Contatti</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="opener">
+    <div class="wrap opener-grid">
+      <div>
+        <h1>Studio dottori commercialisti e revisori contabili in Milano</h1>
+        <p class="lede">Consulenza societaria e fiscale, revisione legale e sistemi di controllo.</p>
+        <div class="btn-row"><a class="btn ghost" href="attivita.html">Aree di attività</a></div>
+      </div>
+      <figure class="cityshot">
+        <img src="img/milano.jpg" alt="Piazza del Duomo a Milano, veduta storica">
+      </figure>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
+      <h2 class="sec-title reveal">Come lavora<br>lo studio</h2>
+      <div class="reveal" data-delay="1">
+        <p style="margin:0 0 18px;font-size:clamp(17px,1.3vw,20px);line-height:1.6">Chi valuta, chi decide e chi firma sono la stessa persona. Ogni pratica resta in capo a un interlocutore che conosce la storia del cliente.</p>
+        <p style="color:var(--ink-soft);margin:0 0 26px">Clienti seguiti negli anni, con una conoscenza reale della loro struttura societaria e delle loro operazioni. Per le materie collegate lo studio si avvale di una rete stabile di professionisti in ambito legale, notarile e giuslavoristico, coordinata direttamente dallo studio.</p>
+        <div class="signblock">
+          <svg class="sig" viewBox="0 0 210 46" role="img" aria-label="Firma di Livia Vallone">
+            <path d="M6 34c6-14 10-22 13-22 3 0 2 8-1 15-2 5-1 8 2 8 5 0 9-7 12-16 2-6 3-9 5-9 2 0 2 3 1 7-2 7-4 12-4 15 0 3 2 4 4 4 5 0 8-6 11-14 2-6 4-14 7-22 2-6 4-8 5-7 2 2-1 10-5 20-5 12-8 19-8 23 0 3 2 4 4 4 6 0 11-9 15-19 2-5 3-7 5-7 2 0 1 4-1 9-2 6-2 9 1 9 4 0 7-4 10-10" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M104 33c4-9 7-14 9-14 2 0 1 5-1 10-1 4 0 6 3 6 5 0 9-8 13-18 3-8 5-11 7-11 2 0 0 6-4 15-4 10-6 15-6 18 0 2 1 3 3 3 5 0 9-7 13-16" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M148 30c8-2 14-6 14-10 0-2-2-3-4-1-4 3-6 9-4 13 2 3 6 3 10 0 5-4 8-9 11-15" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="signname">Livia Vallone</span><span class="signrole">Dottore commercialista</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:clamp(24px,2.6vw,40px)">
+        <h2 class="sec-title reveal">Aree di attività</h2>
+        <a class="meta reveal" href="attivita.html" style="text-decoration:none;border-bottom:1px solid var(--ink);padding-bottom:3px;color:var(--ink)">Vedi tutte</a>
+      </div>
+      <div class="index">
+        <a class="item reveal" href="attivita.html#societaria">
+          <span class="num">01</span>
+          <h3>Consulenza societaria</h3>
+          <p>Costituzione e assetti societari, patti tra soci, operazioni sul capitale, adempimenti e vita ordinaria della società.</p>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a class="item reveal" href="attivita.html#fiscale">
+          <span class="num">02</span>
+          <h3>Fiscalità d&rsquo;impresa e delle persone</h3>
+          <p>Pianificazione, adempimenti dichiarativi, rapporti con l&rsquo;amministrazione finanziaria e assistenza nel contenzioso.</p>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a class="item reveal" href="attivita.html#revisione">
+          <span class="num">03</span>
+          <h3>Revisione legale e organi di controllo</h3>
+          <p>Incarichi di revisione, collegio sindacale, verifiche periodiche sulla regolare tenuta della contabilità.</p>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a class="item reveal" href="attivita.html#governance">
+          <span class="num">04</span>
+          <h3>Governance e sistemi di controllo</h3>
+          <p>Assetti organizzativi, amministrativi e contabili adeguati, procedure interne, presidio dei rischi.</p>
+          <span class="arrow">&rarr;</span>
+        </a>
+        <a class="item reveal" href="attivita.html#bilancio">
+          <span class="num">05</span>
+          <h3>Bilancio e informativa</h3>
+          <p>Redazione e analisi del bilancio, informativa societaria, supporto alla rendicontazione di sostenibilità.</p>
+          <span class="arrow">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="invert">
+    <div class="wrap split">
+      <h2 class="sec-title reveal">Impegno<br>istituzionale</h2>
+      <div class="reveal" data-delay="1">
+        <p style="font-size:clamp(17px,1.3vw,20px);line-height:1.6;margin:0 0 18px;color:var(--paper)">La Dott.ssa Vallone è Consigliere dell&rsquo;Ordine dei Dottori Commercialisti e degli Esperti Contabili di Milano.</p>
+        <p style="margin:0">Partecipa alle commissioni di studio e collabora alla Rassegna del Professionista, realizzata dall&rsquo;Ordine di Milano con 24 Ore Professionale. Un impegno che tiene lo studio dentro il dibattito tecnico prima che le novità arrivino ai clienti.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" style="padding-top:clamp(44px,4.6vw,80px)">
+    <div class="wrap split">
+      <h2 class="sec-title reveal">Un primo<br>incontro</h2>
+      <div class="reveal" data-delay="1">
+        <p class="lede" style="max-width:50ch;margin-bottom:8px">Si comincia da una conversazione, senza impegno, per capire se lo studio è l&rsquo;interlocutore giusto.</p>
+        <div class="btn-row"><a class="btn" href="contatti.html">Contatta lo studio</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap foot-in">
+    <div>
+      <svg viewBox="0 0 260 66" style="height:46px;width:auto" role="img" aria-label="Studio Vallone">
+        <rect x="1" y="3" width="60" height="60" fill="none" stroke="currentColor" stroke-width="1.4"/>
+        <path d="M17 19 L31 47 L45 19" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square"/>
+        <text x="80" y="32" font-family="Archivo,sans-serif" font-size="21" font-weight="500" letter-spacing="3.4" fill="currentColor">STUDIO</text>
+        <text x="80" y="57" font-family="Archivo,sans-serif" font-size="21" font-weight="500" letter-spacing="3.4" fill="currentColor">VALLONE</text>
+      </svg>
+      <p style="margin-top:18px;max-width:40ch">Studio di dottore commercialista e revisore legale in Milano. Consulenza societaria, fiscale e di controllo per imprese e persone fisiche.</p>
+    </div>
+    <div>
+      <strong>Pagine</strong>
+      <p><a href="index.html">Studio</a><br>
+      <a href="profilo.html">Profilo</a><br>
+      <a href="attivita.html">Attività</a><br>
+      <a href="contatti.html">Contatti</a></p>
+    </div>
+    <div>
+      <strong>Sede</strong>
+      <p>Via Caradosso 18<br>20123 Milano (MI)<br>
+      Si riceve su appuntamento</p>
+    </div>
+  </div>
+  <div class="wrap foot-bot">
+    <span>Dott.ssa Livia Vallone, dottore commercialista e revisore legale</span>
+    <span class="foot-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="cookie.html">Cookie</a>
+    </span>
+  </div>
+</footer>
+
+<script>
+/* Studio Vallone, interazioni */
+document.addEventListener('DOMContentLoaded', function () {
+
+  var toggle = document.querySelector('.nav-toggle');
+  var nav = document.querySelector('.nav');
+  if (toggle && nav) {
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      toggle.textContent = open ? 'Chiudi' : 'Indice';
+    });
+  }
+
+  var head = document.querySelector('.site-head');
+  if (head) {
+    var onScroll = function () { head.classList.toggle('is-stuck', window.scrollY > 6); };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    });
+  }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal, .item').forEach(function (el) { io.observe(el); });
+
+  document.querySelectorAll('a.mailto').forEach(function (a) {
+    var ind = a.dataset.u + String.fromCharCode(64) + a.dataset.d;
+    a.href = 'mail' + 'to:' + ind;
+    a.textContent = ind;
+  });
+
+  var consenso = null;
+  try { consenso = localStorage.getItem('sv-consenso'); } catch (e) { consenso = null; }
+  if (!consenso) {
+    var b = document.createElement('div');
+    b.className = 'cbanner show';
+    b.innerHTML = '<p>Questo sito utilizza solo cookie tecnici. La mappa nella pagina Contatti e fornita da Google e viene caricata unicamente con il consenso dell\'utente. Maggiori informazioni nella <a href="cookie.html">cookie policy</a> e nella <a href="privacy.html">informativa privacy</a>.</p>' +
+      '<span class="actions"><button type="button" class="solo">Solo cookie tecnici</button><button type="button" class="primary tutti">Accetta contenuti esterni</button></span>';
+    document.body.appendChild(b);
+    b.addEventListener('click', function (ev) {
+      var scelta = ev.target.classList.contains('tutti') ? 'tutti' : (ev.target.classList.contains('solo') ? 'solo' : null);
+      if (!scelta) return;
+      try { localStorage.setItem('sv-consenso', scelta); } catch (e) {}
+      b.classList.remove('show');
+      if (scelta === 'tutti' && window.svApriMappa) window.svApriMappa();
+    });
+  }
+
+  var mapBtn = document.querySelector('.map-cta');
+  if (mapBtn) {
+    var apri = function () {
+      var holder = mapBtn.parentElement;
+      if (!holder || holder.querySelector('iframe')) return;
+      var f = document.createElement('iframe');
+      f.loading = 'lazy';
+      f.title = 'Mappa, Via Caradosso 18, Milano';
+      f.referrerPolicy = 'no-referrer-when-downgrade';
+      f.src = mapBtn.dataset.src;
+      holder.appendChild(f);
+      mapBtn.remove();
+    };
+    mapBtn.addEventListener('click', apri);
+    window.svApriMappa = apri;
+    if (consenso === 'tutti') apri();
+  }
+});
+
+</script>
+</body>
+</html>
